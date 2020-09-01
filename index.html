@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width-device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie-edge">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<title>Conversor de Peso</title>
+
+<style type="text/css">
+	body{
+		margin-top: 70px;
+		background-color: black;
+		color: white;
+	}
+
+	#output{
+		font-size:22px;
+		background-color: black;
+	}
+
+	h4{
+		text-align: right;
+		margin-right: 10px;
+	}
+</style>
+</head>
+
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<h1 class="display-2">Odeio Libras</h1>
+
+			<form>
+				<div class="form-group">
+					<input id="lbsInput" type="number" class="form-control form-control-lg" placeholder="Insira peso em Libras..."></input>
+				</div>
+			</form>
+
+			<div id="output">
+				<div class="card bg-dark border-primary mb-2">
+					<div class="card-block">
+						<h4>Kilos</h4>
+						<div id="kilosOutput"></div>
+					</div>
+				</div>
+
+				<div class="card bg-dark border-danger mb-2">
+					<div class="card-block">
+						<h4>Onças</h4>
+						<div id="oncasOutput"></div>
+					</div>
+				</div>
+
+				<div class="card bg-dark border-success mb-2">
+					<div class="card-block">
+						<h4>Gramas</h4>
+						<div id="gramasOutput"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+document.getElementById("output").style.visibility = "hidden";
+document.getElementById("lbsInput").addEventListener("input", function(e) {
+  document.getElementById("output").style.visibility = "visible";
+  let lbs = e.target.value;
+  document.getElementById("gramasOutput").innerHTML = (lbs / 0.0022046).toFixed(2);
+  document.getElementById("kilosOutput").innerHTML = (lbs / 2.2046).toFixed(2);
+  document.getElementById("oncasOutput").innerHTML = (lbs * 16).toFixed(2);
+});
+
+</script>
+
+</body>
+</html>
